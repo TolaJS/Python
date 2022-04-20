@@ -10,6 +10,12 @@ from decimal import getcontext
 from math import factorial 
 
 def get_sum(value):
+    '''
+get_sum(value) ->
+    Returns the sum of the Chudnovsky series.
+    value: The amount iterations to sum up in the series.
+    '''
+    
     # Decimal precision to 12000 digits
     getcontext().prec = 12000
     sum = 0
@@ -22,6 +28,13 @@ def get_sum(value):
     return sum
 
 def get_pi(value):
+    '''
+get_pi(value) ->
+    Returns the approximate value of the pi by dividing the 
+    constant with the sum of the series.
+    value: The amount of iterations to sum up in the series.
+    '''
+    
     sum = get_sum(value)
     pi = (Decimal(426880) * Decimal(10005).sqrt()) / sum
     return pi
