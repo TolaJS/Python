@@ -13,7 +13,7 @@ def get_sum(value):
     '''
 get_sum(value) ->
     Returns the sum of the Chudnovsky series.
-    value: The amount iterations to sum up in the series.
+    value: The amount of iterations to sum up in the series.
     '''
     
     # Decimal precision to 12000 digits
