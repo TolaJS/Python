@@ -50,7 +50,7 @@ def check_input(entry):
     
 def main():
     while True:
-        entry = input('Enter the amount of Pi digits you want to see from (1- 10000) or "quit" to exit: ')
+        entry = input('Enter the amount of Pi digits you want to see from (1-10000) or "quit" to exit: ')
         if entry == 'quit':
             break
         if check_input(entry):
