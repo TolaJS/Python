@@ -43,7 +43,7 @@ def check_input(entry):
     if not entry.isdigit():
         print('Input is not a non-negative whole number')
         return False
-    elif  int(entry) > 10000:
+    elif int(entry) > 10000:
         print('Enter a number in range (1-10000)')
         return False
     return True
