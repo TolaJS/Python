@@ -30,13 +30,13 @@ gen_prime() ->
         value += 2
         
 def main():
-    print("Press Enter to generate the next prime number or N to quit.")
+    print("Press Enter to generate the next prime number or Q to quit.")
     g = gen_prime()
     
     while(True):
         entry = input('-> ')
         
-        if entry.lower() == 'n':
+        if entry.lower() == 'q':
             break
         else:
             print(next(g))
