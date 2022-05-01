@@ -4,6 +4,7 @@ FIND THE NEXT PRIME NUMBER UNTILL THE USER DECIDES TO STOP
 Name = next_prime.py
 Author = Tola Shobande (tolajs)
 Comment: Just practing how to use generators.
+Reference = 'https://github.com/Silverneo/pylearn/blob/master/prime.py'
 '''
 
 def isprime(value):
