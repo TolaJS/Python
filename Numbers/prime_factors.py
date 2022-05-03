@@ -10,14 +10,14 @@ from next_prime import isprime
 def prime_factors(value):
     '''
 prime_factors(value) -> 
-    Returs a set of all the prime factors of the parameter value
+    Returns a set of all the prime factors of the parameter value
     '''
     pass
 
 def check_entry(value):
     '''
 check_entry(vale) ->
-    Returns True is the parameter is an integer greater than 1
+    Returns True if the parameter is an integer greater than 1
     '''
     if value.isdigit() and int(value) >1:
         return True
