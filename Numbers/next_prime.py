@@ -12,6 +12,10 @@ def isprime(value):
 isprime(value) ->
     Returns True if the given parameter value is a prime number.
     '''
+    if value == 2:
+        return True
+    if value % 2 == 0:
+        return False
     for i in range(3, int(value**0.5)+1, 2):
         if value % i == 0:
             return False
