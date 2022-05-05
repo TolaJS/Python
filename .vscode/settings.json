@@ -1,0 +1,6 @@
+{
+    "cSpell.ignoreWords": [
+        "tolajs"
+    ],
+    "python.formatting.provider": "black"
+}

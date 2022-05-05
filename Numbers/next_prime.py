@@ -1,9 +1,9 @@
 '''
-FIND THE NEXT PRIME NUMBER UNTILL THE USER DECIDES TO STOP
+FIND THE NEXT PRIME NUMBER UNTIL THE USER DECIDES TO STOP
 
 Name = next_prime.py
 Author = Tola Shobande (tolajs)
-Comment: Just practing how to use generators.
+Comment: Just practicing how to use generators.
 Reference = 'https://github.com/Silverneo/pylearn/blob/master/prime.py'
 '''
 
@@ -24,7 +24,7 @@ isprime(value) ->
 def gen_prime():
     '''
 gen_prime() ->
-    Generator function that yields a value given isprime() retuns True  
+    Generator function that yields a value given isprime() returns True  
     '''
     value = 3
     yield 2
