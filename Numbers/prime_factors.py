@@ -55,7 +55,7 @@ def main():
             print(f"Prime factors are {facts}")
             break
 
-        # Fine lowest factors of entry
+        # Find lowest factors of entry
         while entry != 1:
             facts.append(factor(entry))
             entry //= facts[-1]
