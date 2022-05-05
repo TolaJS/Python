@@ -1,5 +1,5 @@
 """
-FIND THE PRIME FACTORS A NUMBER THE USER ENTERS
+FIND THE PRIME FACTORS OF A NUMBER THE USER ENTERS
 
 Name = prime_factors.py
 Author = Tola Shobande (tolajs)
