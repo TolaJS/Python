@@ -4,8 +4,6 @@ FIND THE PRIME FACTORS OF A NUMBER THE USER ENTERS
 Name = prime_factors.py
 Author = Tola Shobande (tolajs)
 """
-# From the 'next_prime.py' script
-from next_prime import isprime
 
 
 def factor(value):
@@ -48,11 +46,6 @@ def main():
             entry = int(entry)
         else:
             continue
-
-        # Check if entry is prime
-        if isprime(entry):
-            print(f"Prime factors are {[entry]}")
-            break
 
         # Find lowest factors of entry
         while entry != 1:
