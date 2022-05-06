@@ -10,7 +10,7 @@ from next_prime import isprime
 
 def factor(value):
     """
-    prime_factors(value) ->
+    factor(value) ->
         Returns the lowest prime factors of the parameter value
     """
     if value % 2 == 0:
@@ -51,8 +51,7 @@ def main():
 
         # Check if entry is prime
         if isprime(entry):
-            facts.append(entry)
-            print(f"Prime factors are {facts}")
+            print(f"Prime factors are {[entry]}")
             break
 
         # Find lowest factors of entry
