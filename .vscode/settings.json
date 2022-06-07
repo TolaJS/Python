@@ -1,6 +1,4 @@
 {
-    "cSpell.ignoreWords": [
-        "tolajs"
-    ],
+    "jupyter.jupyterServerType": "local",
     "python.formatting.provider": "black"
 }

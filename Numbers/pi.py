@@ -5,6 +5,7 @@ Name = pi.py
 Author = Tola Shobande (tolajs)
 Algorithm = Chudnovsky algorithm
 """
+#TODO  Need to figure out how to make this code more efficient and automated
 from decimal import Decimal
 from decimal import getcontext
 from math import factorial
@@ -63,6 +64,7 @@ def main():
                 710  # The amount of iterations to accurately return 10000 digits of Pi
             )
 
+            #FIXME Automate this
             # Adjusting num based of range of request
             if s <= 2000:
                 num = 150
