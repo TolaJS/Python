@@ -1,7 +1,7 @@
 """
 SIMPLE PYTHON ALARM CLOCK
 
-Description = "Simple python alarm clock designed to ring a set time between the current time 
+Description = "Simple python alarm clock designed to ring at a set time between the current time 
 and the end of the day(23:59)"
 Name = alarm.py
 Author = Tola Shobande (tolajs)
