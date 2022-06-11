@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "playsound"
-    ]
+    ],
+    "python.formatting.provider": "black"
 }
