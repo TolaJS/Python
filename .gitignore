@@ -1,2 +1,4 @@
+.vscode/
+*/.vscode/
 
-Numbers/pi.py
+Numbers/__pycache__/
