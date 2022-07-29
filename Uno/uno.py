@@ -20,11 +20,12 @@ class Card:
     """
     Card class for creating an instance of an UNO card having a
     suit, rank and an action.
-    
+
     * Suit - The colour of the card (R,G,B,Y)
     * Rank - The rank of the card (0-9)
     * Action cards - The card's action
     """
+
     def __init__(self, suit=None, rank=None, action=None):
         self.suit = suit
         self.rank = rank
@@ -49,6 +50,7 @@ class Deck:
     * Wild cards - 4
     * Wild draw 4 cards - 4
     """
+
     def __init__(self):
         self.all_cards = []
 
@@ -66,36 +68,38 @@ class Deck:
                 self.all_cards.append(created_card)
 
     def shuffle(self):
-        """ Implementing the random module to shuffle deck """
+        """Implementing the random module to shuffle deck"""
         random.shuffle(self.all_cards)
 
     def deal_card(self):
-        """ Deal one card from deck """
+        """Deal one card from deck"""
         return self.all_cards.pop()
 
-    def refill(self,cards):
+    def refill(self, cards):
         """Refills the deck when empty"""
         self.all_cards = cards
         self.shuffle()
 
+
 class Player:
     """
-    Player class hold defines the player's name and cards in hand.
+    Player class defines the player's name and cards in hand.
     Allows player to add and remove cards from the hand.
     """
+
     def __init__(self, name):
         self.name = name
         self.uno = False
         self.all_cards = []
 
     def remove_card(self, index):
-        """Removes card at specified index """
+        """Removes card at specified index"""
         return self.all_cards.pop(index)
 
     def add_card(self, new_card):
         """Adds a new card to player's hand"""
         self.all_cards.append(new_card)
-        
+
     def call_uno(self, logic):
         self.uno = logic
 
@@ -107,8 +111,9 @@ class Table:
     """
     Table class holds a list of cards that have been played.
     Cards are added to the table and the details (suit, rank and action)
-    of the last card is stored in the class's attribute.
+    of the last card played is stored in the class's attribute.
     """
+
     def __init__(self):
         self.played_cards = []
         self.suit = None
@@ -129,7 +134,7 @@ class Table:
     def change_suit(self, new_suit):
         """Changes the class's suit attribute"""
         self.suit = new_suit
-    
+
     def clear(self):
         """
         Empty the table leaving only the last cards in list.
@@ -156,16 +161,16 @@ class Game:
     and direct the flow of the game.
     * Each player is dealt 7 cards at the start of the game, followed by dealing a card
     to the table.
-    * Player One starts the game by playing a card or is sanction depending on the card on 
+    * Player One starts the game by playing a card or is sanction depending on the card on
     the table, while the other players follow suit.
     * First player to play all cards in hand wins the game.
-        
+
     >>> self.run() Starts the game loop
     >>> self.next_turn() Controls the game flow
     >>> self.wild() Controls Wild Cards
     >>> self.check_top_card() Controls other action cards
     """
-    
+
     def __init__(self):
         self.direction = 1
         self.turn = 0
@@ -181,13 +186,15 @@ class Game:
             self.p1.add_card(self.deck.deal_card())
             self.p2.add_card(self.deck.deal_card())
             self.p3.add_card(self.deck.deal_card())
-        print(f"\nPlayers {self.p1.name}, {self.p2.name} and {self.p3.name} have been dealt 7 cards each")
+        print(
+            f"\nPlayers {self.p1.name}, {self.p2.name} and {self.p3.name} have been dealt 7 cards each"
+        )
 
         self.players = [self.p1, self.p2, self.p3]
 
     def draw_card(self, turn):
         """Deal A player one card"""
-        self.players[turn].add_card(self.deck.deal_card())      
+        self.players[turn].add_card(self.deck.deal_card())
 
     def deal_table(self):
         """Deals a card to the table given the card is not a wild card"""
@@ -217,11 +224,11 @@ class Game:
         """
         if self.table.action == "Skip":
             self.next_turn()
-            
+
         if self.table.action == "Reverse":
             self.direction *= -1
             self.next_turn()
-            
+
         if self.table.action == "Draw 2":
             self.draw_card(self.turn)
             self.draw_card(self.turn)
@@ -241,7 +248,7 @@ class Game:
         count = Counter(rank_lst)
 
         # If user only has wild cards or has played their last card
-        if set(rank_lst) == {None} or rank_lst==[]:
+        if set(rank_lst) == {None} or rank_lst == []:
             new_suit = random.choice(suits)
         else:
             # Get the most occurring suit in player's hand
@@ -264,7 +271,7 @@ class Game:
 
     def run(self):
         """Main game loop"""
-        
+
         running = True
         # Pre-requirements
         self.deal_table()
@@ -317,7 +324,7 @@ class Game:
             else:
                 for index, card in enumerate(self.players[self.turn].all_cards):
                     # Check if similar rank is available
-                    if self.table.action == None: # Skips action cards with suits
+                    if self.table.action == None:  # Skips action cards with suits
                         if card.rank == self.table.rank:
                             print(
                                 f"Player {self.players[self.turn].name} has played {card}\n"
@@ -348,7 +355,7 @@ class Game:
                         self.draw_card(self.turn)
                         self.next_turn()
 
-            #time.sleep(2)
+            # time.sleep(2)
 
 
 if __name__ == "__main__":
