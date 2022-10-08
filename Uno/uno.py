@@ -89,7 +89,7 @@ class Player:
 
     def __init__(self, name):
         self.name = name
-        self.uno = False
+        self.uno = False # Has player called 'uno'
         self.all_cards = []
 
     def remove_card(self, index):
@@ -120,16 +120,12 @@ class Table:
         self.rank = None
         self.action = None
 
-    def add_card(self, new_cards):
+    def add_card(self, new_card):
         """Adds card to the end of played cards list"""
-        self.played_cards.append(new_cards)
-        self.suit = self.played_cards[-1].suit
-        self.rank = self.played_cards[-1].rank
-        self.action = self.played_cards[-1].action
-
-    def top_card(self):
-        """Returns the last card played on table"""
-        return self.played_cards[-1]
+        self.played_cards.append(new_card)
+        self.suit = new_card.suit
+        self.rank = new_card.rank
+        self.action = new_card.action
 
     def change_suit(self, new_suit):
         """Changes the class's suit attribute"""
@@ -143,17 +139,10 @@ class Table:
         temp_lst = self.played_cards[:-1]
         self.played_cards = [self.played_cards[-1]]
         return temp_lst
-
-    # TODO Might remove this
+    
     def __str__(self):
         top = self.played_cards[-1]
-
-        if top.rank == None and (top.suit in suits):
-            return f"The card in play is {top.action} {top.suit}"
-        elif top.rank == None and top.suit == None:
-            return f"The card in play is {top.action}"
-        return f"The card in play is {top.rank} {top.suit}"
-
+        return f"The card in play is {top}"
 
 class Game:
     """
@@ -174,7 +163,6 @@ class Game:
     def __init__(self):
         self.direction = 1
         self.turn = 0
-
         self.deck = Deck()
         self.table = Table()
         self.p1 = Player("One")
@@ -187,7 +175,7 @@ class Game:
             self.p2.add_card(self.deck.deal_card())
             self.p3.add_card(self.deck.deal_card())
         print(
-            f"\nPlayers {self.p1.name}, {self.p2.name} and {self.p3.name} have been dealt 7 cards each"
+            f"\nPlayers {self.p1.name}, {self.p2.name} and {self.p3.name} have been given 7 cards each"
         )
 
         self.players = [self.p1, self.p2, self.p3]
@@ -275,7 +263,7 @@ class Game:
         running = True
         # Pre-requirements
         self.deal_table()
-        print(f"Card on table is {self.table.top_card()}\n")
+        print(self.table, '\n')
         self.check_top_card()
 
         while running:
@@ -293,7 +281,7 @@ class Game:
                 if len(player.all_cards) == 1 and player.uno == False:
                     player.call_uno(True)
                     print(f"Player {player.name} calls UNO!!\n")
-                if len(player.all_cards) != 1:
+                if len(player.all_cards) > 1:
                     player.call_uno(False)
 
             # Refill deck if deck is empty
@@ -338,7 +326,6 @@ class Game:
                     for index, card in enumerate(self.players[self.turn].all_cards):
                         # Check if wild cards are available
                         if card.action in ["Wild Card", "Wild Draw 4"]:
-
                             print(
                                 f"Player {self.players[self.turn].name} has played {card}"
                             )
