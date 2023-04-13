@@ -8,7 +8,7 @@ pip install spotipy
 ## Prerequisites
 * Have a Spotify account
 * Your Spotify Discovery Weekly playlist must be added to your profile. This can be done on any of the Spotify apps
-* Create an app in dashboard of the spotify for developers [website](https://developer.spotify.com/)
+* Create an app in the dashboard of the spotify for developers [website](https://developer.spotify.com/)
 * Give the app a redirect uri e.g. "https://www.google.com" or "https://www.example.com"
 
 ## Code Additions
